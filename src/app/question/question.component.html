@@ -1,1 +1,4 @@
 <div *ngIf="question">{{question.question}}</div>
+<button *ngIf="!isAnswerAvailable" (click)="setAnswerAvailable()">Give answer</button>
+<div *ngIf="isAnswerAvailable">Answer is: {{question.answer}} </div>
+<button (click)="getNextQuestion()">Next question</button>

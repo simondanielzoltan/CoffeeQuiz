@@ -9,9 +9,19 @@ import { Question } from '../question';
 })
 export class QuestionComponent implements OnInit {
   question: Question;
+  isAnswerAvailable: boolean;
   constructor(private questionService: QuestionService) { }
 
   ngOnInit() {
+    this.getNextQuestion();
+  }
+
+  setAnswerAvailable(){
+    this.isAnswerAvailable=true;
+  }
+
+  getNextQuestion(){
+    this.isAnswerAvailable=false;
     this.questionService.getRandomQuestion().subscribe(question=>{
       this.question=question[0];
     });
