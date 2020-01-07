@@ -7,10 +7,15 @@ import { Question } from './question';
   providedIn: 'root'
 })
 export class QuestionService {
+  private apiUrl = "http://jservice.io/api";
 
   constructor(private http: HttpClient) { }
 
-  getRandomQuestion(): Observable<Question>{
-    return this.http.get<Question>('http://jservice.io/api/random');
+  getRandomQuestion(): Observable<Question[]>{
+    return this.http.get<Question[]>(`${this.apiUrl}/random`);
+  }
+
+  getQuestionByCategory(id:number){
+    return this.http.get<Question[]>(`${this.apiUrl}/clues?category=${id}`);
   }
 }
