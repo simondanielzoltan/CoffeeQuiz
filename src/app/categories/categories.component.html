@@ -1,6 +1,6 @@
 <div *ngIf="categories">
     <ul class="list-group" *ngFor="let category of categories">
-        <li class="list-group-item list-group-item-action col-4 text-center" [routerLink]="['/categories', category.id]">{{category.title}}</li>
+        <li class="list-group-item list-group-item-action col-4 text-center" [routerLink]="['/categories/question', category.id]">{{category.title}}</li>
     </ul>
 </div>
 
@@ -12,15 +12,16 @@
 
 
 <nav aria-label="Page navigation example">
-    <ul class="pagination justify-content-center">
-      <li class="page-item disabled">
-        <a class="page-link" href="#" tabindex="-1">Previous</a>
-      </li>
-      <li class="page-item"><a class="page-link" href="#">1</a></li>
-      <li class="page-item"><a class="page-link" href="#">2</a></li>
-      <li class="page-item"><a class="page-link" href="#">3</a></li>
-      <li class="page-item">
-        <a class="page-link" href="#">Next</a>
-      </li>
+    <ul class="pagination ">
+      <li class="page-item"><a class="page-link" routerLink="/categories/1">1</a></li>
+      <li class="page-item"><a class="page-link" routerLink="/categories/2">2</a></li>
+      <li class="page-item"><a class="page-link" routerLink="/categories/3">3</a></li>
+      <li class="page-item"><a class="page-link" routerLink="/categories/4">4</a></li>
+      <li class="page-item"><a class="page-link" routerLink="/categories/5">5</a></li>
+      <li class="page-item"><a class="page-link" routerLink="/categories/6">6</a></li>
+      <li class="page-item"><a class="page-link" routerLink="/categories/7">7</a></li>
+      <li class="page-item"><a class="page-link" routerLink="/categories/8">8</a></li>
+      <li class="page-item"><a class="page-link" routerLink="/categories/9">9</a></li>
+      <li class="page-item"><a class="page-link" routerLink="/categories/10">10</a></li>
     </ul>
 </nav>

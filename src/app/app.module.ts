@@ -15,9 +15,9 @@ import { CategoryQuestionComponent } from './category-question/category-question
 
 const routes: Routes = [
   { path: '', component: QuestionComponent },
-  { path: 'categories', component:CategoriesComponent },
-  { path: 'categories/:id', component:CategoryQuestionComponent },
-
+  { path: 'categories', redirectTo: 'categories/1' },
+  { path: 'categories/:id', component:CategoriesComponent },
+  { path: 'categories/question/:id', component:CategoryQuestionComponent },
 ];
 
 @NgModule({
