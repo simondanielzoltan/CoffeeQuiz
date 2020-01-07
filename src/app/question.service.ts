@@ -15,7 +15,7 @@ export class QuestionService {
     return this.http.get<Question[]>(`${this.apiUrl}/random`);
   }
 
-  getQuestionByCategory(id:number){
-    return this.http.get<Question[]>(`${this.apiUrl}/clues?category=${id}`);
+  getQuestionsByCategory(id:number):Observable<Question[]>{
+    return this.http.get<Question[]>(`${this.apiUrl}/clues?category=${id}`)
   }
 }
