@@ -1,0 +1,12 @@
+<div class="padding" *ngIf="actualQuestion"><p>{{actualQuestion.question}}</p></div>
+
+<div class="inner padding">
+    <button type="button" class="btn btn-primary" (click)="changeState()">Give answer</button>
+    <button class="btn btn-secondary ml-3" (click)="setNextQuestion()" aria-controls="collapseExample">Next Question</button>
+    <p [@myanimation]='state'>{{actualQuestion.answer}}</p>
+</div>
+
+
+<div *ngIf="isWarning" class="alert alert-warning" role="alert">
+    No more questions. Choose another category.
+</div>
