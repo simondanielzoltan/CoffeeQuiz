@@ -9,6 +9,7 @@ import { Question } from '../question';
 })
 export class QuestionComponent implements OnInit {
   question: Question;
+  inputAnswer: string= "cica"
   isAnswerAvailable: boolean;
   constructor(private questionService: QuestionService) { }
 
