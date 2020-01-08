@@ -1,9 +1,27 @@
+.material-icons{
+    padding-top: 7px;
+}
+
+.cross{
+    color: red;
+}
+
+.pipe{
+    color: green;
+}
 .inner p{
     overflow: hidden;
 }
 .padding{
     padding-left: 2rem;
     padding-top: 2rem;
+}
+
+.left-padding{
+    padding-left: 2rem;
+}
+.answer{
+    padding-left: 3rem;
 }
 
 p {

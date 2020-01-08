@@ -26,6 +26,8 @@ export class CategoryQuestionComponent implements OnInit {
   actualIndex:number;
   isWarning:boolean = false;
   state:string = 'small';
+  inputAnswer: string = ""
+  icon:string;
 
   constructor(private route: ActivatedRoute, private questionService: QuestionService) { }
 
@@ -61,6 +63,18 @@ export class CategoryQuestionComponent implements OnInit {
     }else{
       this.isWarning=true;
     }
+  }
+
+  checkAnswer(){
+    if(this.setStringToCheck(this.inputAnswer)===this.setStringToCheck(this.actualQuestion.answer)){
+      this.icon='pipe';
+    }else{
+      this.icon='cross'
+    }
+  }
+  
+  setStringToCheck(answer:string){
+    return answer.trim().toLocaleLowerCase().replace(/\s/g, '');
   }
 
 }

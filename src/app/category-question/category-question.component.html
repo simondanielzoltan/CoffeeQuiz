@@ -1,6 +1,6 @@
 <div class="padding" *ngIf="actualQuestion"><p>{{actualQuestion.question}}</p></div>
 
-<div class="inner padding">
+<div class="inner left-padding">
     <button type="button" class="btn btn-primary" (click)="changeState()">Give answer</button>
     <button class="btn btn-secondary ml-3" (click)="setNextQuestion()" aria-controls="collapseExample">Next Question</button>
     <p *ngIf="actualQuestion" [@myanimation]='state'>{{actualQuestion.answer}}</p>
@@ -9,4 +9,18 @@
 
 <div *ngIf="isWarning" class="alert alert-warning" role="alert">
     No more questions. Choose another category.
+</div>
+
+<div class="left-padding">Try answer here:</div> 
+<div class="answer row col-6">
+    <input type="text" class="form-control col-6" [(ngModel)]="inputAnswer">
+    <div class="col-6 pipe" *ngIf="icon=='pipe'">
+        <i class="material-icons">check_circle_outline</i>
+    </div>
+    <div class="col-6 cross" *ngIf="icon=='cross'">
+        <i class="material-icons">clear</i>
+    </div>
+</div>
+<div class="left-padding">
+    <button class="btn btn-primary" (click)="checkAnswer()">Submit</button>
 </div>
