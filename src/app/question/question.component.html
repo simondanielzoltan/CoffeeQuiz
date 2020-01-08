@@ -1,13 +1,20 @@
-<div *ngIf="question">{{question.question}}</div>
-<button *ngIf="!isAnswerAvailable" (click)="setAnswerAvailable()">Give answer</button>
-<div *ngIf="isAnswerAvailable">Answer is: {{question.answer}} </div>
-<button (click)="getNextQuestion()">Next question</button>
-
-<div class="form-group">
-    <label for="name">Name</label>
-    <input type="text" class="form-control col-4" [(ngModel)]="inputAnswer">
+<p class="padding" *ngIf="question">{{question.question}}</p>
+<div class="inner left-padding">
+    <button type="button" class="btn btn-primary" (click)="changeState()">Give answer</button>
+    <button class="btn btn-secondary ml-3" (click)="setNextQuestion()" aria-controls="collapseExample">Next Question</button>
+    <p *ngIf="question" [@myanimation]='state'>{{question.answer}}</p>
 </div>
 
-<i class="material-icons">
-    check_circle_outline
-    </i>
+<div class="left-padding">Try answer here:</div> 
+<div class="answer row col-6">
+    <input type="text" class="form-control col-6" [(ngModel)]="inputAnswer">
+    <div class="col-6 pipe" *ngIf="icon=='pipe'">
+        <i class="material-icons">check_circle_outline</i>
+    </div>
+    <div class="col-6 cross" *ngIf="icon=='cross'">
+        <i class="material-icons">clear</i>
+    </div>
+</div>
+<div class="left-padding">
+    <button class="btn btn-primary" (click)="checkAnswer()">Submit</button>
+</div>
