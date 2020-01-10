@@ -9,9 +9,9 @@ import { AppComponent } from './app.component';
 import { QuestionComponent } from './question/question.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
-import { CategoriesComponent } from './categories/categories.component';
-import { CategoryQuestionComponent } from './category-question/category-question.component';
-import { MatIconModule } from '@angular/material'
+import { CategoriesComponent } from './category/categories/categories.component';
+import { CategoryQuestionComponent } from './category/category-question/category-question.component';
+import { MatIconModule, MatFormFieldModule, MatAutocompleteModule, MatButtonModule, MatInputModule } from '@angular/material';
 
 
 const routes: Routes = [
@@ -36,7 +36,11 @@ const routes: Routes = [
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    MatIconModule
+    MatIconModule,
+    MatAutocompleteModule,
+    MatFormFieldModule,
+    MatButtonModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]

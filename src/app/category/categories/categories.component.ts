@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Category } from '../category';
-import { CategoryService } from '../category.service';
-import { ActivatedRoute, Router, NavigationStart, NavigationEnd } from '@angular/router';
+import { Category } from '../../category';
+import { CategoryService } from '../../category.service';
+import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-categories',

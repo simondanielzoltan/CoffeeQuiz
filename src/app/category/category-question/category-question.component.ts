@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { QuestionService } from '../question.service';
-import { Question } from '../question';
+import { QuestionService } from '../../question.service';
+import { Question } from '../../question';
 import {trigger,state,style,transition,animate,keyframes} from '@angular/animations';
 import { Subscription } from 'rxjs';
 
