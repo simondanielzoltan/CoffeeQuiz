@@ -1,9 +1,22 @@
+<h3>Categories:</h3>
+
+<form class="example-form">
+  <mat-form-field class="example-full-width">
+    <input type="text" [(ngModel)]="inputCategory" placeholder="Pick one category" aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto">
+    <mat-autocomplete #auto="matAutocomplete">
+      <mat-option *ngFor="let category of filteredOptions | async" [value]="category">
+        {{category}}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+  <button class="btn btn-primary" (click)="navigateToQuestion()">Submit</button>
+</form>
+
 <div *ngIf="categories">
     <ul class="list-group" *ngFor="let category of categories">
         <li class="list-group-item list-group-item-action col-4 text-center" [routerLink]="['/categories/question', category.id]">{{category.title}}</li>
     </ul>
 </div>
-
 
 
 

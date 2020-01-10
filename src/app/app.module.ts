@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
@@ -11,7 +11,7 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { CategoriesComponent } from './category/categories/categories.component';
 import { CategoryQuestionComponent } from './category/category-question/category-question.component';
-import { MatIconModule, MatFormFieldModule, MatAutocompleteModule, MatButtonModule, MatInputModule } from '@angular/material';
+import { MatIconModule, MatFormFieldModule, MatAutocompleteModule, MatButtonModule, MatInputModule, MatOptionModule } from '@angular/material';
 
 
 const routes: Routes = [
@@ -34,13 +34,15 @@ const routes: Routes = [
     BrowserModule,
     RouterModule.forRoot(routes),
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
     MatIconModule,
     MatAutocompleteModule,
     MatFormFieldModule,
     MatButtonModule,
-    MatInputModule
+    MatInputModule,
+    MatOptionModule
   ],
   providers: [],
   bootstrap: [AppComponent]
