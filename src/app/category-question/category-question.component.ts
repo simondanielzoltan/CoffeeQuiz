@@ -3,6 +3,8 @@ import { ActivatedRoute } from '@angular/router';
 import { QuestionService } from '../question.service';
 import { Question } from '../question';
 import {trigger,state,style,transition,animate,keyframes} from '@angular/animations';
+import { Subscription } from 'rxjs';
+
 
 @Component({
   selector: 'app-category-question',
@@ -28,6 +30,7 @@ export class CategoryQuestionComponent implements OnInit {
   state:string = 'small';
   inputAnswer: string = ""
   icon:string;
+  subscription:Subscription;
 
   constructor(private route: ActivatedRoute, private questionService: QuestionService) { }
 
@@ -46,9 +49,13 @@ export class CategoryQuestionComponent implements OnInit {
     this.actualIndex=0;
   }
 
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
+  }
+
 
   getQuestions(){
-    this.questionService.getQuestionsByCategory(this.categoryId).subscribe(questions=>{
+    this.subscription = this.questionService.getQuestionsByCategory(this.categoryId).subscribe(questions=>{
       this.questions=questions;
       this.actualQuestion=questions[0];
     })

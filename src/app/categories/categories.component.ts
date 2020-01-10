@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Category } from '../category';
 import { CategoryService } from '../category.service';
 import { ActivatedRoute, Router, NavigationStart, NavigationEnd } from '@angular/router';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-categories',
@@ -11,15 +12,20 @@ import { ActivatedRoute, Router, NavigationStart, NavigationEnd } from '@angular
 export class CategoriesComponent implements OnInit {
   categories:Category[];
   pageNumber: number;
+  subscription:Subscription;
 
   constructor(private route: ActivatedRoute ,private categoryService: CategoryService, private router: Router) {
     router.events.subscribe(event=>{
       if (event instanceof NavigationEnd) {
         this.changeCategories();
-    }
+      }
     })
   }
   ngOnInit() {}
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
+  }
 
   changeCategories(){
     this.pageNumber = Number(this.route.snapshot.paramMap.get('id'));
@@ -27,7 +33,7 @@ export class CategoriesComponent implements OnInit {
   }
 
   getCategories(){
-    this.categoryService.getCategories(this.pageNumber).subscribe(categories=>{
+    this.subscription =  this.categoryService.getCategories(this.pageNumber).subscribe(categories=>{
       this.categories=categories;
     });
   }

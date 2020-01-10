@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { QuestionService } from '../question.service';
 import { Question } from '../question';
 import {trigger,state,style,transition,animate,keyframes} from '@angular/animations';
+import { Subscription } from 'rxjs';
 
 
 @Component({
@@ -21,10 +22,16 @@ export class QuestionComponent implements OnInit {
   inputAnswer: string = ""
   state:string = 'small';
   icon:string;
+  subscription : Subscription;
+
   constructor(private questionService: QuestionService) { }
 
   ngOnInit() {
     this.setNextQuestion();
+  }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
   }
 
   changeState(){
@@ -50,7 +57,7 @@ export class QuestionComponent implements OnInit {
 
   async setNextQuestion(){
     await this.closeAnswer()
-    this.questionService.getRandomQuestion().subscribe(question=>{
+    this.subscription = this.questionService.getRandomQuestion().subscribe(question=>{
       this.question=question[0];
     });
   }
