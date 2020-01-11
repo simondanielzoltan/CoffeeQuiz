@@ -1,3 +1,16 @@
 .list-group-item{
     cursor: pointer;
 }
+
+.padding{
+    padding-left: 2rem;
+    padding-top: 1rem;
+}
+.padding-left{
+    padding-left: 2rem;
+}
+
+.pagination{
+    padding-top: 2rem;
+    padding-left: 4rem;
+}
